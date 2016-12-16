@@ -13,8 +13,8 @@
 
 using namespace std;
 
-/***** #define Directives ****************************************************************************************************************/
-#define NATURAL_NUMBER_LIMIT    9      // Last natural number to go to.
+/***** #define Directives *****************************************************************************************************************/
+#define NATURAL_NUMBER_LIMIT    15      // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
 /******************************************************************************************************************************************/
@@ -124,7 +124,7 @@ void concatenate (int leftGuy, unsigned short iteration, string currentString, i
     else /* (leftGuy < 0) */
         leftGuy += -iteration;
 
-    if (leftGuy + concatenateRemainder(iteration) < abs(resultant))                    /* It is not possible to reach resultant, if true. */
+    if (abs(leftGuy) + concatenateRemainder(iteration) < abs(resultant))               /* It is not possible to reach resultant, if true. */
         return;                                                                        /*   (i.e. -12345 + 6789 < 100)                    */
                                                                                        /* [ IMPROVES ] computation speed this way.        */
 
@@ -139,9 +139,16 @@ unsigned long concatenateRemainder(unsigned short iteration) {
 
     unsigned short i;
     unsigned long result = 0;
+    float div;
 
     for (i = iteration; i <= NATURAL_NUMBER_LIMIT; i++) {
-        result *= 10;
+        div = i;
+
+        do {                                                                           /* Allows the concatenated number to shift over    */
+            result *= 10;                                                              /* to the correct spot.                            */
+            div /= 10;
+        } while (div >= 1);
+
         result += i;
     }
 
