@@ -7,26 +7,27 @@
  *   given resultant.
  */
 
-/***** #include Directives ****************************************************************************************************************/
+/******************* #include DIRECTIVES **************************************************************************************************/
 #include <iostream>
 
 using namespace std;
 
-/***** #define Directives *****************************************************************************************************************/
+/******************* #define DIRECTIVES ***************************************************************************************************/
 #define NATURAL_NUMBER_LIMIT    19     // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
-/***** Function Prototypes ****************************************************************************************************************/
+/******************* Function Prototypes **************************************************************************************************/
 unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant);
 
 void add(unsigned short iteration, string currentString, int resultant);
 void subtract(unsigned short iteration, string currentString, int resultant);
 void concatenate (int leftGuy, unsigned short iteration, string currentString, int resultant);
 
-unsigned long concatenateRemainder(unsigned short iteration);
+unsigned long concatenateRemainder(unsigned long possibleLeftGuy,unsigned short iteration);
 
 /******************************************************************************************************************************************/
 int main(void) {
+
     unsigned short numberOfEquations;
 
     numberOfEquations = findPotentialEquations(1, 1, "1", FINAL_RESULTANT);
@@ -42,7 +43,7 @@ int main(void) {
         cout << "There were no possible equations" << endl;
 
     else
-        cout << endl << "There were a total of " << numberOfEquations << " equations" << endl;
+        cout << endl << "There were a total of " << numberOfEquations - 1 << " equations" << endl;
 
     return 0;
 }
@@ -54,9 +55,9 @@ unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, str
 
     if (iteration < NATURAL_NUMBER_LIMIT) {
 
-        if (concatenateRemainder(iteration + 1) >= abs(resultant - leftGuy)) {         /* It is not possible to reach resultant, if true. */
-                                                                                       /*   (i.e. -12345 + 6789 < 100)                    */
-                                                                                       /* [ IMPROVES ] computation speed this way.        */
+        if (concatenateRemainder(0, iteration + 1) >= abs(resultant - leftGuy)) {     /* It is not possible to reach resultant, if false. */
+                                                                                      /*   (i.e. 6789 >= |100 - 12345|)                   */
+                                                                                      /* [ IMPROVES ] computation speed this way.         */
             add(iteration + 1, currentString, resultant - leftGuy);
             subtract(iteration + 1, currentString, resultant - leftGuy);
         }
@@ -104,8 +105,8 @@ void concatenate (int leftGuy, unsigned short iteration, string currentString, i
 
     currentString += to_string(iteration);
 
-    do {                                                                               /* Allows the concatenated number to shift over    */
-        leftGuy *= 10;                                                                 /* to the correct spot.                            */
+    do {                                                                              /* Allows the concatenated number to shift over to  */
+        leftGuy *= 10;                                                                /*   the correct spot.                              */
         div /= 10;
     } while (div >= 1);
 
@@ -115,32 +116,40 @@ void concatenate (int leftGuy, unsigned short iteration, string currentString, i
     else /* (leftGuy < 0) */
         leftGuy += -iteration;
 
-    if (abs(leftGuy) + concatenateRemainder(iteration) < abs(resultant))               /* It is not possible to reach resultant, if true. */
-        return;                                                                        /*   (i.e. -12345 + 6789 < 100)                    */
-                                                                                       /* [ IMPROVES ] computation speed this way.        */
-
-    findPotentialEquations(leftGuy, iteration, currentString, resultant);
-
-    return;
+    if (concatenateRemainder(abs(leftGuy), iteration + 1) >= abs(resultant))          /* It is not possible to reach resultant, if false. */
+        findPotentialEquations(leftGuy, iteration, currentString, resultant);         /*   (i.e. |-12345| + 6789 >= |100|)                */
+                                                                                      /* [ IMPROVES ] computation speed this way.         */
+    else
+        return;
 }
 
-unsigned long concatenateRemainder(unsigned short iteration) {
+unsigned long concatenateRemainder(unsigned long possibleLeftGuy, unsigned short iteration) {
 /***** Function used to find highest valued, concatenated integer from the remaining integers **********************************************
 ****** (i.e. if NATURAL_NUMBER_LIMIT = 9, then concatenateRemainder(6) =  6789) ***********************************************************/
 
     unsigned short i;
-    unsigned long result = 0;
+    unsigned long long result = 0;
     float div;
 
     for (i = iteration; i <= NATURAL_NUMBER_LIMIT; i++) {
         div = i;
 
-        do {                                                                           /* Allows the concatenated number to shift over    */
-            result *= 10;                                                              /* to the correct spot.                            */
+        do {                                                                          /* Allows the concatenated number to shift over to  */
+            result *= 10;                                                             /*   the correct spot.                              */
             div /= 10;
         } while (div >= 1);
 
         result += i;
+    }
+
+    if (possibleLeftGuy > 0) {        // Used for the concatenate function
+        unsigned long j = 1;
+
+        while (j <= result)
+            j *= 10;
+
+        possibleLeftGuy *= j;
+        result += possibleLeftGuy;
     }
 
     return result;
