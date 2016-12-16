@@ -14,14 +14,14 @@
 using namespace std;
 
 /***** #define Directives *****************************************************************************************************************/
-#define NATURAL_NUMBER_LIMIT    15      // Last natural number to go to.
+#define NATURAL_NUMBER_LIMIT    19     // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
 /******************************************************************************************************************************************/
 void findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant);
 
-void add (int leftGuy, unsigned short iteration, string currentString, int resultant);
-void subtract (int leftGuy, unsigned short iteration, string currentString, int resultant);
+void add(unsigned short iteration, string currentString, int resultant);
+void subtract(unsigned short iteration, string currentString, int resultant);
 void concatenate (int leftGuy, unsigned short iteration, string currentString, int resultant);
 
 unsigned long concatenateRemainder(unsigned short iteration);
@@ -58,8 +58,14 @@ void findPotentialEquations(int leftGuy, unsigned short iteration, string curren
 /***** Function used to call add, subtract, and concatenate to find a possible equation to satisfy the result. ****************************/
 
     if (iteration < NATURAL_NUMBER_LIMIT) {
-        add(leftGuy, iteration + 1, currentString, resultant);
-        subtract(leftGuy, iteration + 1, currentString, resultant);
+
+        if (concatenateRemainder(iteration + 1) >= abs(resultant - leftGuy)) {         /* It is not possible to reach resultant, if true. */
+                                                                                       /*   (i.e. -12345 + 6789 < 100)                    */
+                                                                                       /* [ IMPROVES ] computation speed this way.        */
+            add(iteration + 1, currentString, resultant - leftGuy);
+            subtract(iteration + 1, currentString, resultant - leftGuy);
+        }
+
         concatenate(leftGuy, iteration + 1, currentString, resultant);
     }
 
@@ -73,15 +79,9 @@ void findPotentialEquations(int leftGuy, unsigned short iteration, string curren
     return;
 }
 
-void add (int leftGuy, unsigned short iteration, string currentString, int resultant) {
+void add(unsigned short iteration, string currentString, int resultant) {
 /***** Function used to subtract the leftGuy with the current resultant, and make the next leftGuy positive. *******************************
 ****** (i.e. if 56 is old leftGuy, then 7 will be the new leftGuy) ************************************************************************/
-
-    resultant -= leftGuy;
-
-    if (concatenateRemainder(iteration) < abs(resultant))                              /* It is not possible to reach resultant, if true. */
-        return;                                                                        /*   (i.e. -12345 + 6789 < 100)                    */
-                                                                                       /* [ IMPROVES ] computation speed this way.        */
 
     currentString += " + " + to_string(iteration);
     findPotentialEquations(iteration, iteration, currentString, resultant);
@@ -89,15 +89,9 @@ void add (int leftGuy, unsigned short iteration, string currentString, int resul
     return;
 }
 
-void subtract (int leftGuy, unsigned short iteration, string currentString, int resultant) {
+void subtract(unsigned short iteration, string currentString, int resultant) {
 /***** Function used to subtract the leftGuy with the current resultant, and make the next leftGuy negative. *******************************
 ****** (i.e. if 56 is old leftGuy, then -7 will be the new leftGuy) ***********************************************************************/
-
-    resultant -= leftGuy;
-
-    if (concatenateRemainder(iteration) < abs(resultant))                              /* It is not possible to reach resultant, if true. */
-        return;                                                                        /*   (i.e. -12345 + 6789 < 100)                    */
-                                                                                       /* [ IMPROVES ] computation speed this way.        */
 
     currentString += " - " + to_string(iteration);
     findPotentialEquations(-iteration, iteration, currentString, resultant);
