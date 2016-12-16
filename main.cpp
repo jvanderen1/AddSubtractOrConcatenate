@@ -17,8 +17,8 @@ using namespace std;
 #define NATURAL_NUMBER_LIMIT    19     // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
-/******************************************************************************************************************************************/
-void findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant);
+/***** Function Prototypes ****************************************************************************************************************/
+unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant);
 
 void add(unsigned short iteration, string currentString, int resultant);
 void subtract(unsigned short iteration, string currentString, int resultant);
@@ -26,14 +26,12 @@ void concatenate (int leftGuy, unsigned short iteration, string currentString, i
 
 unsigned long concatenateRemainder(unsigned short iteration);
 
-/******************* Function Prototypes **************************************************************************************************/
-
-queue <const string> Q;       // Used to store correct equations.
-
+/******************************************************************************************************************************************/
 int main(void) {
-    unsigned short i = 1;
+    unsigned short numberOfEquations;
 
-    findPotentialEquations(1, 1, "1", FINAL_RESULTANT);            /* leftGuy: Value on the leftmost of the equation. Will be tested      */
+    numberOfEquations = findPotentialEquations(1, 1, "1", FINAL_RESULTANT);
+                                                                   /* leftGuy: Value on the leftmost of the equation. Will be tested      */
                                                                    /*   using addition, subtraction, and concatenation to follow.         */
                                                                    /* iteration: Determines how many times a function was called for a    */
                                                                    /*   single equation.                                                  */
@@ -41,21 +39,19 @@ int main(void) {
                                                                    /* resultant: Driver to find equations. Must equate to 0 at the end    */
                                                                    /*   of the sequence to be considered a valid equation.                */
 
-    if (Q.empty())
-        cout << "There are no equations" << endl;
+    if (numberOfEquations == 1)
+        cout << "There were no possible equations" << endl;
 
     else
-        while (!Q.empty()) {
-            cout << "Equation " << i << ": " << Q.front() << endl;
-            Q.pop();
-            i++;
-        }
+        cout << endl << "There were a total of " << numberOfEquations << " equations" << endl;
 
     return 0;
 }
 
-void findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant) {
+unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant) {
 /***** Function used to call add, subtract, and concatenate to find a possible equation to satisfy the result. ****************************/
+
+    static unsigned short equationNumber = 1;                 // Used to keep track of number of correct equations.
 
     if (iteration < NATURAL_NUMBER_LIMIT) {
 
@@ -72,11 +68,13 @@ void findPotentialEquations(int leftGuy, unsigned short iteration, string curren
     else {                                                         /* Once the last value has been processed from the natural numbers,    */
         resultant -= leftGuy;                                      /*   the program tests to see if it is valid equation.                 */
 
-        if (resultant == 0)
-            Q.push(currentString);
+        if (resultant == 0) {
+            cout << "Equation " << equationNumber << ": " << currentString << endl;
+            equationNumber++;
+        }
     }
 
-    return;
+    return equationNumber;
 }
 
 void add(unsigned short iteration, string currentString, int resultant) {
