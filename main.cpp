@@ -14,7 +14,7 @@
 using namespace std;
 
 /***** #define Directives ****************************************************************************************************************/
-#define NATURAL_NUMBER_LIMIT    4      // Last natural number to go to.
+#define NATURAL_NUMBER_LIMIT    9      // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
 /******************************************************************************************************************************************/
@@ -109,8 +109,14 @@ void concatenate (int leftGuy, unsigned short iteration, string currentString, i
 /***** Function used to concatenate the next integer with the current leftGuy. *************************************************************
 ****** (i.e. if 6 is old leftGuy, then 67 will be the new leftGuy) ************************************************************************/
 
+    float div = iteration;
+
     currentString += to_string(iteration);
-    leftGuy *= 10;
+
+    do {                                                                               /* Allows the concatenated number to shift over    */
+        leftGuy *= 10;                                                                 /* to the correct spot.                            */
+        div /= 10;
+    } while (div >= 1);
 
     if (leftGuy > 0)
         leftGuy += iteration;
