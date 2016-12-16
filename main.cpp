@@ -1,7 +1,7 @@
 /*******************************************************************************************************************************************
  * Joshua Van Deren
  * General Programming
- * Program AddSubtractorConcatenate
+ * Program AddSubtractOrConcatenate
  *
  * Program to find a set of equations using only addition, subtraction, or concatenation, from a range of natural numbers, to equate to a
  *   given resultant.
@@ -14,7 +14,7 @@
 using namespace std;
 
 /***** #define Directives ****************************************************************************************************************/
-#define NATURAL_NUMBER_LIMIT    9      // Last natural number to go to.
+#define NATURAL_NUMBER_LIMIT    4      // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
 /******************************************************************************************************************************************/
@@ -41,11 +41,15 @@ int main(void) {
                                                                    /* resultant: Driver to find equations. Must equate to 0 at the end    */
                                                                    /*   of the sequence to be considered a valid equation.                */
 
-    while (!Q.empty()) {
-        cout << "Equation " << i << ": " << Q.front() << endl;
-        Q.pop();
-        i++;
-    }
+    if (Q.empty())
+        cout << "There are no equations" << endl;
+
+    else
+        while (!Q.empty()) {
+            cout << "Equation " << i << ": " << Q.front() << endl;
+            Q.pop();
+            i++;
+        }
 
     return 0;
 }

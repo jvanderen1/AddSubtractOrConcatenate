@@ -54,45 +54,45 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing"
+CMAKE_SOURCE_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug"
+CMAKE_BINARY_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug"
 
 #=============================================================================
-# Target rules for target CMakeFiles/AdditionSubtractionOrNothing.dir
+# Target rules for target CMakeFiles/AddSubtractOrConcatenate.dir
 
 # All Build rule for target.
-CMakeFiles/AdditionSubtractionOrNothing.dir/all:
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/depend
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target AdditionSubtractionOrNothing"
-.PHONY : CMakeFiles/AdditionSubtractionOrNothing.dir/all
+CMakeFiles/AddSubtractOrConcatenate.dir/all:
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/depend
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target AddSubtractOrConcatenate"
+.PHONY : CMakeFiles/AddSubtractOrConcatenate.dir/all
 
 # Include target in all.
-all: CMakeFiles/AdditionSubtractionOrNothing.dir/all
+all: CMakeFiles/AddSubtractOrConcatenate.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/AdditionSubtractionOrNothing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/AdditionSubtractionOrNothing.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" 0
-.PHONY : CMakeFiles/AdditionSubtractionOrNothing.dir/rule
+CMakeFiles/AddSubtractOrConcatenate.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/AddSubtractOrConcatenate.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" 0
+.PHONY : CMakeFiles/AddSubtractOrConcatenate.dir/rule
 
 # Convenience name for target.
-AdditionSubtractionOrNothing: CMakeFiles/AdditionSubtractionOrNothing.dir/rule
+AddSubtractOrConcatenate: CMakeFiles/AddSubtractOrConcatenate.dir/rule
 
-.PHONY : AdditionSubtractionOrNothing
-
-# clean rule for target.
-CMakeFiles/AdditionSubtractionOrNothing.dir/clean:
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/clean
-.PHONY : CMakeFiles/AdditionSubtractionOrNothing.dir/clean
+.PHONY : AddSubtractOrConcatenate
 
 # clean rule for target.
-clean: CMakeFiles/AdditionSubtractionOrNothing.dir/clean
+CMakeFiles/AddSubtractOrConcatenate.dir/clean:
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/clean
+.PHONY : CMakeFiles/AddSubtractOrConcatenate.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/AddSubtractOrConcatenate.dir/clean
 
 .PHONY : clean
 

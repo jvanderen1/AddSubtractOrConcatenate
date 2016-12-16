@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing
+# Install script for directory: /Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

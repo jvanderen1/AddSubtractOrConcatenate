@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing"
+CMAKE_SOURCE_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug"
+CMAKE_BINARY_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named AdditionSubtractionOrNothing
+# Target rules for targets named AddSubtractOrConcatenate
 
 # Build rule for target.
-AdditionSubtractionOrNothing: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AdditionSubtractionOrNothing
-.PHONY : AdditionSubtractionOrNothing
+AddSubtractOrConcatenate: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AddSubtractOrConcatenate
+.PHONY : AddSubtractOrConcatenate
 
 # fast build rule for target.
-AdditionSubtractionOrNothing/fast:
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/build
-.PHONY : AdditionSubtractionOrNothing/fast
+AddSubtractOrConcatenate/fast:
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/build
+.PHONY : AddSubtractOrConcatenate/fast
 
 main.o: main.cpp.o
 
@@ -129,7 +129,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -138,7 +138,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -147,7 +147,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/AdditionSubtractionOrNothing.dir/build.make CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/AddSubtractOrConcatenate.dir/build.make CMakeFiles/AddSubtractOrConcatenate.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -158,7 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... AdditionSubtractionOrNothing"
+	@echo "... AddSubtractOrConcatenate"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing"
+CMAKE_SOURCE_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug"
+CMAKE_BINARY_DIR = "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/AdditionSubtractionOrNothing.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/AdditionSubtractionOrNothing.dir/flags.make
 
 CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o: CMakeFiles/AdditionSubtractionOrNothing.dir/flags.make
 CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o -c "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o -c "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/main.cpp"
 
 CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/main.cpp" > CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/main.cpp" > CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.i
 
 CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/main.cpp" -o CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/main.cpp" -o CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.s
 
 CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o.requires:
 
@@ -91,7 +91,7 @@ AdditionSubtractionOrNothing_EXTERNAL_OBJECTS =
 AdditionSubtractionOrNothing: CMakeFiles/AdditionSubtractionOrNothing.dir/main.cpp.o
 AdditionSubtractionOrNothing: CMakeFiles/AdditionSubtractionOrNothing.dir/build.make
 AdditionSubtractionOrNothing: CMakeFiles/AdditionSubtractionOrNothing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AdditionSubtractionOrNothing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AdditionSubtractionOrNothing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AdditionSubtractionOrNothing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/AdditionSubtractionOrNothing.dir/clean:
 .PHONY : CMakeFiles/AdditionSubtractionOrNothing.dir/clean
 
 CMakeFiles/AdditionSubtractionOrNothing.dir/depend:
-	cd "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AdditionSubtractionOrNothing/cmake-build-debug/CMakeFiles/AdditionSubtractionOrNothing.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug" "/Users/jvanderen11/OneDrive/General Programming/C++ Programs/AddSubtractOrConcatenate/cmake-build-debug/CMakeFiles/AdditionSubtractionOrNothing.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/AdditionSubtractionOrNothing.dir/depend
 
