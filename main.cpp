@@ -9,6 +9,7 @@
 
 /******************* #include DIRECTIVES **************************************************************************************************/
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -16,7 +17,11 @@ using namespace std;
 #define NATURAL_NUMBER_LIMIT    19     // Last natural number to go to.
 #define FINAL_RESULTANT         100    // Resulting equations must equal this.
 
+#define FILE_NAME               to_string(NATURAL_NUMBER_LIMIT) + "_" + to_string(FINAL_RESULTANT)
+
 /******************* Function Prototypes **************************************************************************************************/
+bool fileExists();
+
 unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant);
 
 void add(unsigned short iteration, string currentString, int resultant);
@@ -28,9 +33,30 @@ unsigned long concatenateRemainder(unsigned long possibleLeftGuy,unsigned short 
 /******************************************************************************************************************************************/
 int main(void) {
 
-    unsigned short numberOfEquations;
+    if (fileExists()) {
 
-    numberOfEquations = findPotentialEquations(1, 1, "1", FINAL_RESULTANT);
+        string line;
+        ifstream fin (FILE_NAME);
+
+
+        if ( fin.is_open() ) {
+
+            while (getline(fin, line))
+                cout << "From file: \"" << line << "\"" << endl;
+
+            fin.close();
+            cout << endl << "Successfully read from the file" << endl;
+        }
+
+        else
+            cout << "[ ERROR ] Something went wrong" << endl;
+    }
+
+    else {
+
+        unsigned short numberOfEquations;
+
+        numberOfEquations = findPotentialEquations(1, 1, "1", FINAL_RESULTANT);
                                                                    /* leftGuy: Value on the leftmost of the equation. Will be tested      */
                                                                    /*   using addition, subtraction, and concatenation to follow.         */
                                                                    /* iteration: Determines how many times a function was called for a    */
@@ -38,12 +64,20 @@ int main(void) {
                                                                    /* currentString: Stores the potential equation the form of a string.  */
                                                                    /* resultant: Driver to find equations. Must equate to 0 at the end    */
                                                                    /*   of the sequence to be considered a valid equation.                */
+        ofstream fout (FILE_NAME, ios::app);
 
-    if (numberOfEquations == 1)
-        cout << "There were no possible equations" << endl;
+        if (numberOfEquations == 1) {
+            cout << "There were no possible equations" << endl;
+            fout << "There were no possible equations" << endl;
+        }
 
-    else
-        cout << endl << "There were a total of " << numberOfEquations - 1 << " equations" << endl;
+        else {
+            cout << endl << "There were a total of " << numberOfEquations << " equations" << endl;
+            fout << endl << "There were a total of " << numberOfEquations << " equations" << endl;
+        }
+
+        fout.close();
+    }
 
     return 0;
 }
@@ -51,7 +85,7 @@ int main(void) {
 unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant) {
 /***** Function used to call add, subtract, and concatenate to find a possible equation to satisfy the result. ****************************/
 
-    static unsigned short equationNumber = 1;                 // Used to keep track of number of correct equations.
+    static unsigned short equationNumber = 0;                 // Used to keep track of number of correct equations.
 
     if (iteration < NATURAL_NUMBER_LIMIT) {
 
@@ -69,8 +103,13 @@ unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, str
         resultant -= leftGuy;                                      /*   the program tests to see if it is valid equation.                 */
 
         if (resultant == 0) {
-            cout << "Equation " << equationNumber << ": " << currentString << endl;
             equationNumber++;
+
+            cout << "Equation " << equationNumber << ": " << currentString << endl;
+
+            ofstream fout (FILE_NAME, ios::app);
+            fout << "Equation " << equationNumber << ": " << currentString << endl;
+            fout.close();
         }
     }
 
@@ -153,4 +192,11 @@ unsigned long concatenateRemainder(unsigned long possibleLeftGuy, unsigned short
     }
 
     return result;
+}
+
+bool fileExists() {
+/***** Function to check if a text file of equations already exists. **********************************************************************/
+
+    ifstream infile(FILE_NAME);
+    return infile.good();
 }
