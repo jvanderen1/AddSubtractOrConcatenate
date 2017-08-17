@@ -13,20 +13,20 @@
 using namespace std;
 
 /******************* #define DIRECTIVES ***************************************************************************************************/
-#define NATURAL_NUMBER_LIMIT    19     // Last natural number to go to.
-#define FINAL_RESULTANT         100    // Resulting equations must equal this.
+#define NATURAL_NUMBER_LIMIT    2      // Last natural number to go to.
+#define FINAL_RESULTANT         12     // Resulting equations must equal this.
 
 /******************* Function Prototypes **************************************************************************************************/
-unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant);
+unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, const string &currentString, int resultant);
 
 void add(unsigned short iteration, string currentString, int resultant);
 void subtract(unsigned short iteration, string currentString, int resultant);
 void concatenate (int leftGuy, unsigned short iteration, string currentString, int resultant);
 
-unsigned long concatenateRemainder(unsigned long possibleLeftGuy,unsigned short iteration);
+unsigned long concatenateRemainder(unsigned long possibleLeftGuy, unsigned short iteration);
 
 /******************************************************************************************************************************************/
-int main(void) {
+int main() {
 
     unsigned short numberOfEquations;
 
@@ -38,8 +38,8 @@ int main(void) {
                                                                    /* currentString: Stores the potential equation the form of a string.  */
                                                                    /* resultant: Driver to find equations. Must equate to 0 at the end    */
                                                                    /*   of the sequence to be considered a valid equation.                */
-    if (numberOfEquations == 1)
-        cout << "There were no possible equations" << endl;
+    if (numberOfEquations == 0)
+        cout << endl << "There were no possible equations" << endl;
 
     else
         cout << endl << "There were a total of " << numberOfEquations << " equations" << endl;
@@ -47,7 +47,7 @@ int main(void) {
     return 0;
 }
 
-unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, string currentString, int resultant) {
+unsigned short findPotentialEquations(int leftGuy, unsigned short iteration, const string &currentString, int resultant) {
 /***** Function used to call add, subtract, and concatenate to find a possible equation to satisfy the result. ****************************/
 
     static unsigned short equationNumber = 0;                 // Used to keep track of number of correct equations.
@@ -82,8 +82,6 @@ void add(unsigned short iteration, string currentString, int resultant) {
 
     currentString += " + " + to_string(iteration);
     findPotentialEquations(iteration, iteration, currentString, resultant);
-
-    return;
 }
 
 void subtract(unsigned short iteration, string currentString, int resultant) {
@@ -92,8 +90,6 @@ void subtract(unsigned short iteration, string currentString, int resultant) {
 
     currentString += " - " + to_string(iteration);
     findPotentialEquations(-iteration, iteration, currentString, resultant);
-
-    return;
 }
 
 void concatenate (int leftGuy, unsigned short iteration, string currentString, int resultant) {
